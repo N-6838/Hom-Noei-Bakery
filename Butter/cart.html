@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตะกร้าสินค้า | Agatha Bakery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>🛒 ตะกร้าสินค้า</h2>
+  
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Our Menu</a>
+      <a href="#">Delivery Service</a>
+      <a href="#">Contact</a>
+  </nav>
+
+  <div class="cart"><a href="cart.html" style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+    🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+
+    <script>
+      function addToCart() {
+    let count = parseInt(localStorage.getItem("cartCount")) || 0;
+    count += 1;
+    localStorage.setItem("cartCount", count);
+
+    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
+}
+
+    </script>
+    
+</header>
+
+
+
+<div class="cart-page">
+  <h1>สินค้าที่เลือกไว้</h1>
+  <p>จำนวนสินค้าในตะกร้า:</p>
+
+  
+    <h2 id="total">0 ชิ้น</h2>
+  
+
+  <button class="clear" onclick="clearCart()">ล้างตะกร้า</button>
+
+
+  
+</div>
+
+<script >function updateCartPage() {
+    let count = localStorage.getItem("cartCount") || 0;
+    document.getElementById("total").innerText = count + " ชิ้น";
+}
+
+updateCartPage();
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

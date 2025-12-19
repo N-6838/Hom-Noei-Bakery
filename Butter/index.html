@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍞 Butter Bakery</title>
+
+  <!-- เชื่อม style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- แถบหัวเว็บ -->
+  <header>
+    <h2>🍞 Butter Bakery</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Our Menu</a>
+      <a href="#">Delivery Service</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+    🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+
+    <script>
+      function addToCart() {
+    let count = parseInt(localStorage.getItem("cartCount")) || 0;
+    count += 1;
+    localStorage.setItem("cartCount", count);
+
+    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
+}
+
+    </script>
+
+  </header>
+
+  <!-- ส่วนแนะนำ -->
+  <div class="hero">
+    <img src="images/1.png" alt="cake">
+    <h1>Signature Butter Sugar Toast</h1>
+    <p>ขนมปังทาเนยน้ำตาลสูตรพิเศษ หวานละมุน หอมเนยเต็มคำ</p>
+    <p>🧈 เพียงชิ้นละ 6 บาท 🧈</p>
+    <button>Order Now</button>
+  </div>
+
+  <!-- สินค้า -->
+  <div class="product-section">
+    <div class="product">
+      <img src="images/2.png" alt="cake">
+
+      <h3>
+        <div> 
+          <a href="product1.html" 
+            style="text-decoration: none; color: #5A3E2B;">Butter Soft Toast
+          </a> 
+        </div>
+      </h3>
+
+      <p>ราคา 95 บาท</p>
+      <button class="add" onclick="addToCart()">ใส่ตะกร้า</button>
+    </div> 
+
+    <div class="product">
+      <img src="images/3.png" alt="cake">
+
+      <h3>
+        <div> 
+          <a href="product2.html" 
+            style="text-decoration: none; color: #5A3E2B;">Butter Sugar Toast
+        </div>
+      </h3>
+
+      <p>ราคา 120 บาท</p>
+      <button class="add" onclick="addToCart()">ใส่ตะกร้า</button>
+    </div>
+
+    <div class="product">
+      <img src="images/4.png" alt="cake">
+
+      <h3>
+        <div> 
+          <a href="product3.html" 
+            style="text-decoration: none; color: #5A3E2B;">Butter Milk Sweet Toast
+          </a> 
+        </div>
+      </h3>
+
+      <p>ราคา 130 บาท</p>
+      <button class="add" onclick="addToCart()">ใส่ตะกร้า</button>
+    </div>
+  </div>
+
+  <!-- เชื่อม script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
