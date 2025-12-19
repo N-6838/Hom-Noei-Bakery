@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍞 Butter Bakery</title>
+
+  <!-- เชื่อม style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- แถบหัวเว็บ -->
+  <header>
+    <h2>🍞 Butter Bakery</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Our Menu</a>
+      <a href="#">Delivery Service</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+    🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+
+ <script>
+      function addToCart() {
+    let count = parseInt(localStorage.getItem("cartCount")) || 0;
+    count += 1;
+    localStorage.setItem("cartCount", count);
+
+    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
+}
+
+    </script>
+
+  </header>
+
+<!-- ส่วนแนะนำ -->
+  <div class="hero">
+    <img src="images/4.png" alt="cake">
+    <h1>Butter Milk Sweet Toast</h1>
+    <p>🥛 ขนมปังเนยน้ำตาลนมข้น หวานมัน ฟินแบบเกาหลีแท้ๆ</p>
+    <p>เนยหอม + น้ำตาลกรุบ + นมข้นหวานละมุน รวมตัวเป็นความอร่อยที่ปังที่สุด เหมาะมากสำหรับคนชอบความหวานแบบละมุนๆ เข้มข้นพอดี กินคู่ชาเย็นหรือโกโก้คือดีมาก!</p>
+    <button onclick="addToCart()">Order Now</button>
+  </div>
+
+
+<div class="cart"><a href="cart.html" style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+    🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+
+<script>
+function updateCartCount() {
+    let count = localStorage.getItem("cartCount") || 0;
+    document.getElementById("cart-count").innerText = count;
+}
+
+function addToCart() {
+    let count = parseInt(localStorage.getItem("cartCount")) || 0;
+    count++;
+    localStorage.setItem("cartCount", count);
+    updateCartCount();
+}
+
+updateCartCount();
+</script>
+
+</body>
+</html>
