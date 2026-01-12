@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สรุปรายการสั่งซื้อ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <h2>🛒 สรุปรายการสั่งซื้อ</h2>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="#">Delivery Service</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="cart">
+    <a href="cart.html">
+      🛒 <span id="cart-count">0</span>
+    </a>
+  </div>
+</header>
+
+<!-- กล่องหลัก -->
+<div class="check-page">
+
+  <h2>📦 รายการสินค้า</h2>
+  <div id="order-list" class="order-list"></div>
+
+  <hr>
+
+  <div class="summary">
+    <p>ยอดรวมทั้งหมด</p>
+    <h3 id="total">0 บาท</h3>
+  </div>
+
+  <hr>
+
+  <h2>💳 การชำระเงิน</h2>
+  <div class="payment-info">
+    <p><strong>โอนเงินผ่านบัญชีธนาคาร</strong></p>
+    <p>ชื่อบัญชี: หอมเนย เบเกอรี่</p>
+    <p>ธนาคาร: กสิกรไทย</p>
+    <p>เลขบัญชี: XXX-X-XXXXX-X</p>
+  </div>
+
+  <label class="upload-slip">
+    แนบสลิปการโอนเงิน
+    <input type="file">
+  </label>
+
+  <button onclick="confirmOrder()">ยืนยันการสั่งซื้อ</button>
+</div>
+
+<script>
+function confirmOrder() {
+  alert("ขอบคุณสำหรับการสั่งซื้อ 💛");
+  localStorage.removeItem("cart");
+  localStorage.removeItem("cartCount");
+  window.location.href = "index.html";
+}
+</script>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+let html = "";
+
+cart.forEach(item => {
+  const sum = item.price * item.qty;
+  total += sum;
+  html += `<p>${item.name} x ${item.qty} <span>${sum} บาท</span></p>`;
+});
+
+document.getElementById("order-list").innerHTML = html || "<p>ไม่มีสินค้าในตะกร้า</p>";
+document.getElementById("total").innerText = total + " บาท";
+document.getElementById("cart-count").innerText = localStorage.getItem("cartCount") || 0;
+</script>
+
+</body>
+</html>

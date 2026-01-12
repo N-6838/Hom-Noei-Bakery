@@ -2,65 +2,90 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>ตะกร้าสินค้า | Agatha Bakery</title>
+  <title>ตะกร้าสินค้า</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="top-header">
   <h2>🛒 ตะกร้าสินค้า</h2>
-  
+
   <nav>
-      <a href="index.html">Home</a>
-      <a href="#">Our Menu</a>
-      <a href="#">Delivery Service</a>
-      <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="#">Delivery Service</a>
+    <a href="#">Contact</a>
   </nav>
 
-  <div class="cart"><a href="cart.html" style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
-    🛒 <span id="cart-count">0</span>
-      </a>
-    </div>
-
-    <script>
-      function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count += 1;
-    localStorage.setItem("cartCount", count);
-
-    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
-}
-
-    </script>
-    
+  <div class="cart">
+    <a href="cart.html">
+      🛒 <span id="cart-count">0</span>
+    </a>
+  </div>
 </header>
 
-
-
+<!-- กล่องหลัก -->
 <div class="cart-page">
-  <h1>สินค้าที่เลือกไว้</h1>
-  <p>จำนวนสินค้าในตะกร้า:</p>
+  <h2>📦 รายการสินค้าในตะกร้า</h2>
+  <div id="cart-list"></div>
+  <h3 id="total"></h3>
 
-  
-    <h2 id="total">0 ชิ้น</h2>
-  
-
-  <button class="clear" onclick="clearCart()">ล้างตะกร้า</button>
-
-
-  
+  <button onclick="clearCart()">ล้างตะกร้า</button>
+  <button onclick="goCheckout()">ชำระเงิน</button>
 </div>
 
-<script >function updateCartPage() {
-    let count = localStorage.getItem("cartCount") || 0;
-    document.getElementById("total").innerText = count + " ชิ้น";
+<script src="script.js"></script>
+<script>
+const cart = getCart();
+let html = "";
+let total = 0;
+
+cart.forEach((item, i) => {
+  const price = Number(item.price) || 0;
+  const qty = Number(item.qty) || 0;
+  const sum = price * qty;
+  total += sum;
+
+  html += `
+    <div class="cart-item">
+      <img src="${item.image || 'images/no-image.png'}">
+      <div>
+        <h4>${item.name}</h4>
+        <p>${price} บาท</p>
+        <button onclick="changeQty(${i}, -1)">−</button>
+        <span>${qty}</span>
+        <button onclick="changeQty(${i}, 1)">+</button>
+      </div>
+    </div>
+  `;
+});
+
+document.getElementById("cart-list").innerHTML =
+  html || "<p>ยังไม่มีสินค้าในตะกร้า</p>";
+
+document.getElementById("total").innerText =
+  "รวม " + total + " บาท";
+
+document.getElementById("cart-count").innerText =
+  localStorage.getItem("cartCount") || 0;
+
+function changeQty(i, n) {
+  let cart = getCart();
+  cart[i].qty += n;
+  if (cart[i].qty <= 0) cart.splice(i, 1);
+  saveCart(cart);
+  location.reload();
 }
 
-updateCartPage();
-
+function goCheckout() {
+  if (cart.length === 0) {
+    alert("ยังไม่มีสินค้าในตะกร้า");
+  } else {
+    location.href = "checkout.html";
+  }
+}
 </script>
 
-<script src="script.js"></script>
 
 </body>
 </html>

@@ -1,72 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍞 Butter Bakery</title>
+  <title>🍞 Hom Noei Bakery</title>
 
   <!-- เชื่อม style.css -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- แถบหัวเว็บ -->
   <header>
-    <h2>🍞 Butter Bakery</h2>
+    <h2>🍞 Hom Noei Bakery</h2>
     <nav>
       <a href="index.html">Home</a>
-      <a href="#">Our Menu</a>
+      <a href="menu.html">Our Menu</a>
       <a href="#">Delivery Service</a>
       <a href="#">Contact</a>
     </nav>
-    <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
-    🛒 <span id="cart-count">0</span>
+    <div class="cart"><a href="cart.html"
+        style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+        🛒 <span id="cart-count">0</span>
       </a>
     </div>
 
- <script>
+    <script>
       function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count += 1;
-    localStorage.setItem("cartCount", count);
+        let count = parseInt(localStorage.getItem("cartCount")) || 0;
+        count += 1;
+        localStorage.setItem("cartCount", count);
 
-    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
-}
+        updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
+      }
 
     </script>
 
   </header>
 
-<!-- ส่วนแนะนำ -->
+  <!-- ส่วนแนะนำ -->
   <div class="hero">
-    <img src="images/3.png" alt="cake">
+    <img src="images/1.2.png" alt="cake">
     <h1>Butter Sugar Toast</h1>
+
+    <div class="product-video">
+      <video autoplay muted loop playsinline>
+        <source src="videos/butter-toast.mp4" type="video/mp4">
+        เบราว์เซอร์ไม่รองรับวิดีโอ
+      </video>
+    </div>
+
     <p>🍯 ขนมปังเนยน้ำตาลกรอบนอก นุ่มใน หวานกำลังดี</p>
-    <p>เคลือบเนยหอมๆ แล้วโรยน้ำตาลให้กรุบเบาๆ ทุกคำที่กัดคือความฟิน หอม กรอบ หวาน ลงตัวสุดๆ เมนูฮิตตลอดกาลที่ใครๆ ก็หลงรัก</p>
+    <p>เคลือบเนยหอมๆ แล้วโรยน้ำตาลให้กรุบเบาๆ ทุกคำที่กัดคือความฟิน หอม กรอบ หวาน ลงตัวสุดๆ เมนูฮิตตลอดกาลที่ใครๆ
+      ก็หลงรัก</p>
     <button onclick="addToCart()">Order Now</button>
   </div>
 
 
-<div class="cart"><a href="cart.html" style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
-    🛒 <span id="cart-count">0</span>
-      </a>
-    </div>
+  <div class="cart"><a href="cart.html"
+      style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
+      🛒 <span id="cart-count">0</span>
+    </a>
+  </div>
 
-<script>
-function updateCartCount() {
-    let count = localStorage.getItem("cartCount") || 0;
-    document.getElementById("cart-count").innerText = count;
-}
+  <script>
+    function updateCartCount() {
+      let count = localStorage.getItem("cartCount") || 0;
+      document.getElementById("cart-count").innerText = count;
+    }
 
-function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count++;
-    localStorage.setItem("cartCount", count);
+    function addToCart() {
+      let count = parseInt(localStorage.getItem("cartCount")) || 0;
+      count++;
+      localStorage.setItem("cartCount", count);
+      updateCartCount();
+    }
+
     updateCartCount();
-}
-
-updateCartCount();
-</script>
+  </script>
 
 </body>
+
 </html>
