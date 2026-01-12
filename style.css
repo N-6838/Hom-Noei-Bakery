@@ -1,3 +1,8 @@
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Prompt", sans-serif;
   background: #FFF8E7;
@@ -118,10 +123,11 @@ nav a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cart-list {
-  display: flex;
-  flex-direction: column;   /* เรียงแนวตั้ง */
-  gap: 10px;                /* เว้นระยะระหว่างสินค้า */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
 
@@ -258,12 +264,20 @@ nav a:hover {
 
 .product img {
   width: 100%;
-  border-radius: 15px;
+  height: 140px;          /* ⭐ บังคับความสูงรูป */
+  object-fit: contain;    /* ⭐ รูปเล็กไม่ขยาย รูปใหญ่ไม่ล้น */
+  border-radius: 12px;
+  background: #fff;
 }
 
+
 .product h3 {
+  font-size: 16px;
   color: #5A3E2B;
+  margin: 12px 0 6px;
+  min-height: 40px; /* ⭐ กันชื่อยาว/สั้นไม่เท่ากัน */
 }
+
 
 button.add {
   background: #c44a6f;
@@ -330,4 +344,116 @@ button.add:hover {
 .upload-slip input {
   display: block;
   margin-top: 8px;
+}
+
+.contact-page {
+  max-width: 600px;
+  margin: 120px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contact-box p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.contact-form {
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  background: #c59d5f;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  background: #a87c3a;
+}
+
+/*Contact Page ให้ดูสวยบนมือถือ*/
+@media (max-width: 480px) {
+
+  .contact-page h2 {
+    font-size: 20px;
+  }
+
+  .contact-box p {
+    font-size: 14px;
+  }
+
+}
+
+/*ปรับ Cart / Check / Contact ให้ไม่ติดขอบ*/
+@media (max-width: 480px) {
+
+  .cart-page,
+  .check-page,
+  .contact-page {
+    margin: 40px 15px;
+    padding: 25px 20px;
+  }
+
+}
+
+/*ปรับ Hero ให้เหมาะกับมือถือ*/
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero img {
+    width: 150px;
+  }
+
+  .hero h1 {
+    font-size: 1.6em;
+  }
+
+}
+
+/*ปรับ Header + เมนู ให้ไม่ล้นจอมือถือ*/
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 8px 10px;
+    font-size: 15px;
+  }
+
 }

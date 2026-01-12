@@ -7,6 +7,7 @@
 
   <!-- เชื่อม style.css -->
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -16,8 +17,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Our Menu</a>
-      <a href="#">Delivery Service</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
     🛒 <span id="cart-count">0</span>
@@ -40,18 +40,13 @@
 <!-- ส่วนแนะนำ -->
   <div class="hero">
     <img src="images/1.1.png" alt="cake">
-    <h1>Butter Soft Toast</h1>
-
-  <div class="product-video">
-    <video autoplay muted loop playsinline>
-      <source src="videos/butter-toast.mp4" type="video/mp4">
-      เบราว์เซอร์ไม่รองรับวิดีโอ
-    </video>
-  </div>
-
+    <h1>Soft Butter Hug</h1>
     <p>🥯 ขนมปังเนยนุ่มละมุน หอมกลิ่นเนยเต็มคำ</p>
     <p>แผ่นขนมปังอบจนกรอบพอดี แต่กัดแล้วนุ่มหอม ละลายในปาก ได้รสเนยแท้แบบเต็มๆ เหมาะสำหรับคนที่ชอบความเรียบง่ายแต่พรีเมียม สายเนยต้องโดน!</p>
-    <button onclick="addToCart()">Order Now</button>
+    <button onclick=
+        "addToCart('Soft Butter Hug',
+          10,
+        'images/1.1.png')">Order Now</button>
   </div>
 
 
@@ -75,6 +70,6 @@ function addToCart() {
 
 updateCartCount();
 </script>
-
+<script src="script.js"></script>
 </body>
 </html>

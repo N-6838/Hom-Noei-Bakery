@@ -8,6 +8,7 @@
 
   <!-- เชื่อม style.css -->
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -18,8 +19,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Our Menu</a>
-      <a href="#">Delivery Service</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="cart"><a href="cart.html"
         style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
@@ -43,19 +43,13 @@
   <!-- ส่วนแนะนำ -->
   <div class="hero">
     <img src="images/1.2.png" alt="cake">
-    <h1>Butter Sugar Toast</h1>
-
-    <div class="product-video">
-      <video autoplay muted loop playsinline>
-        <source src="videos/butter-toast.mp4" type="video/mp4">
-        เบราว์เซอร์ไม่รองรับวิดีโอ
-      </video>
-    </div>
-
+    <h1>Sweet Melt Box</h1>
     <p>🍯 ขนมปังเนยน้ำตาลกรอบนอก นุ่มใน หวานกำลังดี</p>
     <p>เคลือบเนยหอมๆ แล้วโรยน้ำตาลให้กรุบเบาๆ ทุกคำที่กัดคือความฟิน หอม กรอบ หวาน ลงตัวสุดๆ เมนูฮิตตลอดกาลที่ใครๆ
       ก็หลงรัก</p>
-    <button onclick="addToCart()">Order Now</button>
+    <button onclick="addToCart('Sweet Melt Box',
+          20,
+        'images/1.2.png')">Order Now</button>
   </div>
 
 
@@ -80,7 +74,7 @@
 
     updateCartCount();
   </script>
-
+<script src="script.js"></script>
 </body>
 
 </html>

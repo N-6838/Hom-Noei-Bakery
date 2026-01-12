@@ -7,6 +7,7 @@
 
   <!-- เชื่อม style.css -->
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -16,8 +17,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Our Menu</a>
-      <a href="#">Delivery Service</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
     🛒 <span id="cart-count">0</span>
@@ -53,13 +53,17 @@ function addToCart() {
       <h3>
         <div> 
           <a href="product1.html" 
-            style="text-decoration: none; color: #5A3E2B;">Butter Soft Toast
+            style="text-decoration: none; color: #5A3E2B;">Soft Butter Hug
           </a> 
         </div>
       </h3>
 
-      <p>ราคา 95 บาท</p>
-      <button class="add" onclick="addToCart()">ใส่ตะกร้า</button>
+      <p>ราคา 10 บาท</p>
+      <button class="add" onclick="addToCart(
+        'Soft Butter Hug',
+          10,
+        'images/1.1.png'
+        )">ใส่ตะกร้า</button>
     </div> 
 
     <div class="product">
@@ -68,32 +72,55 @@ function addToCart() {
       <h3>
         <div> 
           <a href="product2.html" 
-            style="text-decoration: none; color: #5A3E2B;">Butter Sugar Toast
+            style="text-decoration: none; color: #5A3E2B;">Sweet Melt Box
           </a>
         </div>
       </h3>
 
-      <p>ราคา 120 บาท</p>
-      <button class="add" onclick="addToCart('ขนมปังเนย',
-       30,
-       'images/1.2.png')">ใส่ตะกร้า</button>
+      <p>ราคา 20 บาท</p>
+      <button class="add" onclick="addToCart(
+        'Sweet Melt Box',
+          20,
+        'images/1.2.png'
+        )">ใส่ตะกร้า</button>
     </div>
 
     <div class="product">
-      <img src="images/4.png" alt="cake">
+      <img src="images/1.3.png" alt="cake">
 
       <h3>
         <div> 
           <a href="product3.html" 
-            style="text-decoration: none; color: #5A3E2B;">Butter Milk Sweet Toast
+            style="text-decoration: none; color: #5A3E2B;">Golden Toast Crate
           </a> 
         </div>
       </h3>
 
-      <p>ราคา 130 บาท</p>
-      <button class="add" onclick="addToCart('ขนมปังเนย',
-       60,
-       'images/4.png')">ใส่ตะกร้า</button>
+      <p>ราคา 40 บาท</p>
+      <button class="add" onclick="addToCart(
+        'Golden Toast Crate',
+          40,
+        'images/1.3.png'
+        )">ใส่ตะกร้า</button>
+    </div>
+
+  <div class="product">
+      <img src="images/1.4.png" alt="cake">
+
+      <h3>
+        <div> 
+          <a href="product4.html" 
+            style="text-decoration: none; color: #5A3E2B;">Bakery Family Box
+          </a> 
+        </div>
+      </h3>
+
+      <p>ราคา 60 บาท</p>
+      <button class="add" onclick="addToCart(
+        'Bakery Family Box',
+          60,
+        'images/1.4.png'
+        )">ใส่ตะกร้า</button>
     </div>
   </div>
 

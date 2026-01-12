@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍞 Hom Noei Bakery</title>
+
+  <!-- เชื่อม style.css -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="top-header">
+  <h2>🍞 Hom Noei Bakery </h2>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="cart">
+    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  </div>
+</header>
+
+<!-- กล่อง Contact -->
+<div class="contact-page">
+
+  <h1>Hom Noei Bakery 🍞</h1>
+  <p>หอม อบ สด ใหม่ทุกวัน 💛</p>
+
+  <div class="contact-box">
+    <p>📍 ที่อยู่: 123 ถนนเบเกอรี่ หาดใหญ่ สงขลา</p>
+    <p>📞 โทร: 099-999-9999</p>
+    <p>📧 Email: homnoeibakery@gmail.com</p>
+    <p>🕘 เวลาเปิดร้าน: 08:00 – 18:00</p>
+  </div>
+
+  <h2>📩 ส่งข้อความถึงเรา</h2>
+
+  <form class="contact-form">
+    <input type="text" placeholder="ชื่อของคุณ">
+    <input type="email" placeholder="อีเมล">
+    <textarea placeholder="ข้อความที่ต้องการติดต่อ"></textarea>
+    <button type="button" onclick="sendMsg()">ส่งข้อความ</button>
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+function sendMsg() {
+  alert("ขอบคุณที่ติดต่อเรา 💛");
+}
+</script>
+
+</body>
+</html>
