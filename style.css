@@ -457,3 +457,22 @@ button.add:hover {
   }
 
 }
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-icon {
+  width: 60px;        /* ปรับใหญ่เล็กได้ตามใจ */
+  margin-bottom: 8px; /* ระยะห่างจากข้อความ */
+}
+
+.hero-icon2 {
+  width: 140px;        /* ปรับใหญ่เล็กได้ตามใจ */
+  margin-bottom: 8px; /* ระยะห่างจากข้อความ */
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: #5A3E2B;
+}
