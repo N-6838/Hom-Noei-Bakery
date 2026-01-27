@@ -12,18 +12,40 @@
 <body>
 
   <!-- แถบหัวเว็บ -->
-  <header>
-    <h2>🍞 Hom Noei Bakery</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Our Menu</a>
-      <a href="Contact.html">Contact</a>
-    </nav>
-    <div class="cart"><a href="cart.html"  style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
-    🛒 <span id="cart-count">0</span>
-      </a>
-    </div>
+  <header class="site-header">
+  <!-- ซ้าย: โลโก้/ชื่อร้าน -->
+  <div class="brand">
+    🍞 <span>Hom Noei Bakery</span>
+  </div>
 
+  <!-- กลาง: เมนู -->
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ขวา: ไอคอน -->
+  <div class="header-actions">
+    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
+      🛒 <span id="cart-count">0</span>
+    </a>
+
+    <div class="user-menu" id="userMenu">
+      <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
+
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-row">
+          <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
+        </div>
+
+        <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
+        <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
+        <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
+  
  <script>
       function addToCart() {
     let count = parseInt(localStorage.getItem("cartCount")) || 0;

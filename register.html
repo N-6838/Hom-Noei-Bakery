@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สมัครสมาชิก | Hom Noei Bakery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="top-header">
+  <h2>🍞 Hom Noei Bakery</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>📝 สมัครสมาชิก</h1>
+    <p class="auth-sub">สมัครไว้เพื่อเข้าสู่ระบบและสั่งซื้อได้สะดวกขึ้น</p>
+
+    <form id="register-form" class="auth-form">
+      <label>ชื่อผู้ใช้</label>
+      <input id="reg-username" type="text" placeholder="เช่น agatha" required />
+
+      <label>อีเมล</label>
+      <input id="reg-email" type="email" placeholder="example@email.com" required />
+
+      <label>รหัสผ่าน</label>
+      <input id="reg-password" type="password" placeholder="อย่างน้อย 4 ตัว" required />
+
+      <button type="submit" class="auth-btn">สมัครสมาชิก</button>
+    </form>
+
+    <p class="auth-switch">
+      มีบัญชีแล้ว? <a href="login.html">เข้าสู่ระบบ</a>
+    </p>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

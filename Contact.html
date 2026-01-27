@@ -16,15 +16,34 @@
 <header class="top-header">
   <h2>🍞 Hom Noei Bakery </h2>
 
-  <nav>
+  <!-- กลาง: เมนู -->
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
-    <a href="Contact.html">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="cart">
-    <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+  <!-- ขวา: ไอคอน -->
+  <div class="header-actions">
+    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
+      🛒 <span id="cart-count">0</span>
+    </a>
+
+    <div class="user-menu" id="userMenu">
+      <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
+
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-row">
+          <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
+        </div>
+
+        <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
+        <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
+        <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
+      </div>
+    </div>
   </div>
+  
 </header>
 
 <!-- กล่อง Contact -->

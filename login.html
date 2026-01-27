@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เข้าสู่ระบบ | Hom Noei Bakery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="top-header">
+  <h2>🍞 Hom Noei Bakery</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Our Menu</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>🔐 เข้าสู่ระบบ</h1>
+    <p class="auth-sub">ยินดีต้อนรับกลับมา 💛</p>
+
+    <form id="login-form" class="auth-form">
+      <label>ชื่อผู้ใช้ หรือ อีเมล</label>
+      <input id="login-user" type="text" placeholder="username หรือ email" required />
+
+      <label>รหัสผ่าน</label>
+      <input id="login-password" type="password" placeholder="password" required />
+
+      <!-- ล็อกอินลูกค้า -->
+      <button type="submit" class="auth-btn">เข้าสู่ระบบ</button>
+
+      <!-- ล็อกอินพนักงาน -->
+    <button type="button" class="auth-btn auth-ghost" onclick="loginStaff()">
+        เข้าสู่ระบบพนักงาน
+    </button>
+
+      <button class="auth-btn auth-ghost" onclick="logoutDemo()">ออกจากระบบ (เดโม)</button>
+    </form>
+
+    
+
+    <p class="auth-switch">
+      ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a>
+    </p>
+  </div>
+</div>
+
+
+
+<script src="auth.js"></script>
+
+<script>
+  // เข้าสู่ระบบพนักงาน (เด้งไปหลังบ้าน)
+  function loginStaff() {
+    // ตอนนี้ให้เป็นเดโมไปก่อน: ตั้ง role เป็น staff แล้วเด้งไปหน้า admin
+    localStorage.setItem("role", "staff");
+    window.location.href = "admin.html"; // เดี๋ยวเราทำหลังบ้านจริงกันต่อ
+  }
+
+  // กัน error ถ้า auth.js ยังไม่มี logoutDemo
+  function logoutDemo() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("role");
+    alert("ออกจากระบบแล้ว (เดโม)");
+    window.location.reload();
+  }
+</script>
+
+<script>
+function loginStaff(){
+  window.location.href = "staff-login.html";
+}
+</script>
+
+</body>
+</html>

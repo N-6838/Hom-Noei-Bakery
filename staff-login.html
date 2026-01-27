@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <h2>🔒 ระบบพนักงาน</h2>
+</header>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>เข้าสู่ระบบพนักงาน</h1>
+    <p class="auth-sub">สำหรับเจ้าหน้าที่ร้านเท่านั้น</p>
+<form id="login-form" class="auth-form">
+    <label>ชื่อผู้ใช้ หรือ อีเมล</label>
+    <input id="staff-user" type="text" placeholder="Username" required />
+    
+    <label>รหัสผ่าน</label>
+    <input id="staff-pass" type="password" placeholder="Password" required />
+</form>
+    <button type="submit" class="btn-main" onclick="checkStaffLogin()">เข้าสู่ระบบ</button>
+    <button class="btn-soft" onclick="history.back()">ย้อนกลับ</button>
+
+  </div>
+</div>
+
+<script>
+function checkStaffLogin(){
+  const user = document.getElementById("staff-user").value;
+  const pass = document.getElementById("staff-pass").value;
+
+  if(user === "Admin" && pass === "1234"){
+    localStorage.setItem("role", "staff");
+    localStorage.setItem("staffName", "Admin");
+    window.location.href = "admin.html";
+  } else {
+    alert("รหัสพนักงานไม่ถูกต้อง ❌");
+  }
+}
+</script>
+
+</body>
+</html>
