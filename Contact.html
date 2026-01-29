@@ -1,84 +1,56 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍞 Hom Noei Bakery</title>
-
-  <!-- เชื่อม style.css -->
+  <title>Contact | Hom Noei Bakery</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-<header class="top-header">
-  <h2>🍞 Hom Noei Bakery </h2>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
 
-  <!-- กลาง: เมนู -->
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ขวา: ไอคอน -->
   <div class="header-actions">
-    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
-      🛒 <span id="cart-count">0</span>
-    </a>
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
 
     <div class="user-menu" id="userMenu">
       <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
-
       <div class="user-dropdown" id="userDropdown">
         <div class="user-row">
           <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
         </div>
-
         <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
         <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
         <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
       </div>
     </div>
   </div>
-  
 </header>
 
-<!-- กล่อง Contact -->
 <div class="contact-page">
-
-  <h1>Hom Noei Bakery 🍞</h1>
-
-  <div><img src="images/hom.jfif" class="hero-icon2">
-  <p>หอม อบ สด ใหม่ทุกวัน 💛</p>
-  </div>
+  <h2>📞 ติดต่อเรา</h2>
 
   <div class="contact-box">
-    <p>📍 ที่อยู่: 123 ถนนเบเกอรี่ หาดใหญ่ สงขลา</p>
-    <p>📞 โทร: 099-999-9999</p>
-    <p>📧 Email: homnoeibakery@gmail.com</p>
-    <p>🕘 เวลาเปิดร้าน: 08:00 – 18:00</p>
+    <p>โทร: 0xx-xxx-xxxx</p>
+    <p>LINE: @homnoei</p>
+    <p>Facebook: Hom Noei Bakery</p>
   </div>
-
-  <h2>📩 ส่งข้อความถึงเรา</h2>
 
   <form class="contact-form">
     <input type="text" placeholder="ชื่อของคุณ">
     <input type="email" placeholder="อีเมล">
-    <textarea placeholder="ข้อความที่ต้องการติดต่อ"></textarea>
-    <button type="button" onclick="sendMsg()">ส่งข้อความ</button>
+    <textarea placeholder="พิมพ์ข้อความ..."></textarea>
+    <button type="button" onclick="alert('ส่งข้อความแล้ว (เดโม)')">ส่งข้อความ</button>
   </form>
-
 </div>
 
 <script src="script.js"></script>
-<script>
-function sendMsg() {
-  alert("ขอบคุณที่ติดต่อเรา 💛");
-}
-</script>
-
 </body>
 </html>

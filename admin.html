@@ -1,44 +1,255 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>หลังบ้านพนักงาน</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>หลังบ้าน | Hom Noei Bakery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .admin-wrap{max-width:980px;margin:30px auto;padding:0 16px;}
+    .admin-card{background:#fff;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);padding:18px;}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+    .tab-btn{border:none;background:#f3ede3;color:#5A3E2B;padding:10px 14px;border-radius:14px;cursor:pointer;font-weight:700}
+    .tab-btn.active{background:linear-gradient(135deg,#8A5A3A,#C28C5C);color:#fff}
+    .row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:center}
+    .row input{padding:12px;border:1px solid #ddd;border-radius:12px;font-size:15px;width:100%}
+    .list{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+    .item{display:flex;gap:12px;align-items:center;border:1px solid #eee;border-radius:14px;padding:10px}
+    .item img{width:56px;height:56px;object-fit:cover;border-radius:12px;background:#f5f5f5}
+    .item .meta{flex:1}
+    .item .meta b{display:block;color:#5A3E2B}
+    .item small{color:#777}
+    .btn-mini{padding:10px 12px;border:none;border-radius:12px;cursor:pointer}
+    .btn-del{background:#b42318;color:#fff}
+    .btn-go{background:#eee;color:#5A3E2B}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:700px){
+      .row{grid-template-columns:1fr; }
+      .grid2{grid-template-columns:1fr;}
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="brand">🔒 <span>หลังบ้านพนักงาน</span></div>
+  <div class="brand">🔧 <span>Admin Dashboard</span></div>
   <nav class="main-nav">
-    <a href="index.html">กลับหน้าร้าน</a>
+    <a href="index.html">หน้าร้าน</a>
+    <a href="menu.html">เมนู</a>
   </nav>
+  <div class="header-actions">
+    <div class="user-menu">
+      <button class="user-btn" id="logoutBtn" title="ออกจากระบบ">🚪</button>
+    </div>
+  </div>
 </header>
 
-<div class="check-page">
-  <h2>✅ เข้าสู่ระบบพนักงานแล้ว</h2>
-  <p>หน้านี้เป็นหน้าชั่วคราว เดี๋ยวเราจะทำหลังบ้านจริงกันต่อ</p>  
+<div class="admin-wrap">
+  <div class="admin-card">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="products">📦 สินค้า</button>
+      <button class="tab-btn" data-tab="staff">👤 พนักงาน</button>
+      <button class="tab-btn" data-tab="customers">🧾 ลูกค้า</button>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="tab-products">
+      <h2 style="margin:6px 0 12px;color:#5A3E2B;">เพิ่มสินค้า</h2>
+
+      <div class="row">
+        <input id="pName" placeholder="ชื่อสินค้า เช่น Butter Sugar Toast">
+        <input id="pPrice" type="number" placeholder="ราคา เช่น 120">
+        <input id="pImage" placeholder="รูป (path/URL) เช่น images/1.2.png">
+        <button class="btn-main" style="width:auto;padding:12px 16px" onclick="addProduct()">เพิ่ม</button>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn-soft" style="width:auto" onclick="loadProducts()">รีเฟรชรายการ</button>
+        <button class="btn-soft" style="width:auto" onclick="location.href='menu.html'">ไปดูหน้าบ้าน (เมนู)</button>
+      </div>
+
+      <div class="list" id="productList"></div>
+    </section>
+
+    <!-- STAFF -->
+    <section id="tab-staff" style="display:none">
+      <h2 style="margin:6px 0 12px;color:#5A3E2B;">จัดการพนักงาน</h2>
+      <div class="row" style="grid-template-columns:1fr 1fr auto;">
+        <input id="sUser" placeholder="Username เช่น Admin2">
+        <input id="sPass" placeholder="Password เช่น 1234">
+        <button class="btn-main" style="width:auto;padding:12px 16px" onclick="addStaff()">เพิ่ม</button>
+      </div>
+      <div class="list" id="staffList"></div>
+      <p style="color:#777;margin-top:10px;">* พนักงานเริ่มต้น: Admin / 1234</p>
+    </section>
+
+    <!-- CUSTOMERS -->
+    <section id="tab-customers" style="display:none">
+      <h2 style="margin:6px 0 12px;color:#5A3E2B;">ข้อมูลลูกค้า</h2>
+      <div class="list" id="customerList"></div>
+      <p style="color:#777;margin-top:10px;">* ลูกค้าจะเข้ามาเมื่อสมัครสมาชิกผ่าน register</p>
+    </section>
+  </div>
 </div>
 
-<button class="btn-danger" onclick="logoutStaff()">ออกจากระบบ</button>
-
 <script>
-  if(localStorage.getItem("role") !== "staff"){
-  window.location.href = "staff-login.html";
+/* กันคนแอบเข้า */
+if (localStorage.getItem("role") !== "staff") {
+  location.href = "staff-login.html";
 }
-function logoutStaff(){
+
+document.getElementById("logoutBtn").onclick = () => {
   localStorage.removeItem("role");
   localStorage.removeItem("staffName");
-  window.location.href = "login.html";
-}
-</script>
+  location.href = "login.html";
+};
 
+/* Tabs */
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
 
-<script>
-function logoutStaff(){
-  localStorage.removeItem("role");
-  window.location.href = "login.html";
+    const tab = btn.dataset.tab;
+    document.getElementById("tab-products").style.display = tab==="products" ? "block" : "none";
+    document.getElementById("tab-staff").style.display = tab==="staff" ? "block" : "none";
+    document.getElementById("tab-customers").style.display = tab==="customers" ? "block" : "none";
+
+    if(tab==="products") loadProducts();
+    if(tab==="staff") loadStaff();
+    if(tab==="customers") loadCustomers();
+  });
+});
+
+/* Helpers */
+async function api(action, body){
+  const res = await fetch("api/api.php?action=" + action, {
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(body || {})
+  });
+  return await res.json();
 }
+
+/* PRODUCTS */
+async function loadProducts(){
+  const res = await fetch("api/api.php?action=products_list");
+  const j = await res.json();
+  const box = document.getElementById("productList");
+  if(!j.ok){ box.innerHTML = "<p>โหลดสินค้าไม่ได้</p>"; return; }
+  if(j.data.length===0){ box.innerHTML = "<p>ยังไม่มีสินค้า</p>"; return; }
+
+  box.innerHTML = j.data.map(p=>`
+    <div class="item">
+      <img src="${p.image || 'images/no-image.png'}" alt="">
+      <div class="meta">
+        <b>${p.name}</b>
+        <small>${p.price} บาท • #${p.id}</small>
+      </div>
+      <button class="btn-mini btn-del" onclick="delProduct(${p.id})">ลบ</button>
+    </div>
+  `).join("");
+}
+
+async function addProduct(){
+  const name = document.getElementById("pName").value.trim();
+  const price = Number(document.getElementById("pPrice").value);
+  const image = document.getElementById("pImage").value.trim();
+
+  const j = await api("product_add", {name, price, image});
+  if(!j.ok){ alert(j.msg); return; }
+
+  document.getElementById("pName").value="";
+  document.getElementById("pPrice").value="";
+  document.getElementById("pImage").value="";
+  await loadProducts();
+
+  // ✅ เพิ่มแล้วเด้งไปหน้าบ้าน (เมนู)
+  if(confirm("เพิ่มสินค้าแล้ว ✅ ไปดูหน้าเมนูหน้าบ้านเลยไหม?")){
+    location.href="menu.html";
+  }
+}
+
+async function delProduct(id){
+  if(!confirm("ลบสินค้านี้?")) return;
+  const j = await api("product_delete", {id});
+  if(!j.ok){ alert(j.msg); return; }
+  loadProducts();
+}
+
+/* STAFF */
+async function loadStaff(){
+  const res = await fetch("api/api.php?action=staff_list");
+  const j = await res.json();
+  const box = document.getElementById("staffList");
+  if(!j.ok){ box.innerHTML="<p>โหลดพนักงานไม่ได้</p>"; return; }
+  if(j.data.length===0){ box.innerHTML="<p>ยังไม่มีพนักงาน</p>"; return; }
+
+  box.innerHTML = j.data.map(s=>`
+    <div class="item">
+      <div class="meta">
+        <b>${s.username}</b>
+        <small>#${s.id} • ${s.created_at || ""}</small>
+      </div>
+      <button class="btn-mini btn-del" onclick="delStaff(${s.id},'${s.username}')">ลบ</button>
+    </div>
+  `).join("");
+}
+
+async function addStaff(){
+  const username = document.getElementById("sUser").value.trim();
+  const password = document.getElementById("sPass").value.trim();
+  const j = await api("staff_add", {username, password});
+  if(!j.ok){ alert(j.msg); return; }
+  document.getElementById("sUser").value="";
+  document.getElementById("sPass").value="";
+  loadStaff();
+}
+
+async function delStaff(id, username){
+  if(username==="Admin"){ alert("กันพลาด: ห้ามลบ Admin"); return; }
+  if(!confirm("ลบพนักงาน "+username+" ?")) return;
+  const j = await api("staff_delete", {id});
+  if(!j.ok){ alert(j.msg); return; }
+  loadStaff();
+}
+
+/* CUSTOMERS */
+async function loadCustomers(){
+  const res = await fetch("api/api.php?action=customers_list");
+  const j = await res.json();
+  const box = document.getElementById("customerList");
+  if(!j.ok){ box.innerHTML="<p>โหลดลูกค้าไม่ได้</p>"; return; }
+  if(j.data.length===0){ box.innerHTML="<p>ยังไม่มีลูกค้า</p>"; return; }
+
+  box.innerHTML = j.data.map(c=>`
+    <div class="item" style="align-items:flex-start">
+      <div class="meta" style="width:100%">
+        <b>#${c.id} • ${c.username}</b>
+        <small>${c.email || ""}</small>
+        <div class="grid2" style="margin-top:10px">
+          <input value="${c.username}" id="cu-${c.id}">
+          <input value="${c.email || ""}" id="ce-${c.id}" placeholder="email">
+        </div>
+        <div style="margin-top:10px;display:flex;gap:10px;justify-content:flex-end">
+          <button class="btn-mini btn-go" onclick="saveCustomer(${c.id})">บันทึก</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function saveCustomer(id){
+  const username = document.getElementById("cu-"+id).value.trim();
+  const email = document.getElementById("ce-"+id).value.trim();
+  const j = await api("customer_update", {id, username, email});
+  if(!j.ok){ alert(j.msg); return; }
+  alert("บันทึกแล้ว ✅");
+  loadCustomers();
+}
+
+/* init */
+loadProducts();
 </script>
 
 </body>

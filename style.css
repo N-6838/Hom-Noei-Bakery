@@ -1,7 +1,4 @@
-
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   font-family: "Prompt", sans-serif;
@@ -10,7 +7,9 @@ body {
   padding: 0;
 }
 
-/* แถบเมนู */
+/* =========================
+   Header แบบเก่า (top-header)
+========================= */
 header:not(.site-header) {
   background: #F4E8D3;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -23,10 +22,7 @@ header:not(.site-header) {
   z-index: 10;
 }
 
-header h2 {
-  color: #5A3E2B;
-  margin: 0;
-}
+header h2 { color: #5A3E2B; margin: 0; }
 
 nav a {
   text-decoration: none;
@@ -34,47 +30,21 @@ nav a {
   margin: 0 15px;
   font-weight: 500;
 }
+nav a:hover { color: #C28C5C; }
 
-nav a:hover {
-  color: #C28C5C;
-}
-
-/* ปุ่มตะกร้า */
-.cart {
- 
-  border-radius: 25px;
-  
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  font-weight: bold;
-}
-
-.cart span {
-  background: #C28C5C;
-  color: #fff;
-  border-radius: 50%;
-  padding: 3px 8px;
-  margin-left: 6px;
-}
-
-/* ส่วน hero */
+/* =========================
+   HERO
+========================= */
 .hero {
   text-align: center;
   padding: 80px 20px;
   background: linear-gradient(180deg, #fff5f9, #ffffff);
 }
-
-.hero img {
-  width: 200px;
-  border-radius: 15px;
-}
-
-.hero h1 {
-  color: #3c2a3e;
-  font-size: 2.2em;
-}
+.hero img { width: 200px; border-radius: 15px; }
+.hero h1 { color: #3c2a3e; font-size: 2.2em; }
 
 .hero button {
-  background: #8A5A3A; 
+  background: #8A5A3A;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -83,16 +53,12 @@ nav a:hover {
   margin-top: 15px;
   font-size: 16px;
 }
+.hero button:hover { background: #C28C5C; }
 
-.hero button:hover {
-  background: #C28C5C;
-}
-
-/* ส่วนสินค้า */
-.product-section {
-  text-align: center;
-  padding: 40px 20px;
-}
+/* =========================
+   Product
+========================= */
+.product-section { text-align: center; padding: 40px 20px; }
 
 .product {
   display: inline-block;
@@ -104,180 +70,21 @@ nav a:hover {
   width: 200px;
   transition: 0.3s;
 }
-
-
-.cart-page {
-   max-width: 420px;
-  width: 100%;
-  margin: 80px auto;
-  padding: 30px 25px;
-
-  background: #ffffff;
-  border-radius: 18px;
-
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.08),
-    0 4px 10px rgba(0, 0, 0, 0.05);
-
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-}
-
-
-.cart-item img {
-  width: 80px;        /* คุมความกว้าง */
-  height: 80px;       /* คุมความสูง */
-  object-fit: cover;  /* ครอบรูปให้พอดี */
-  border-radius: 8px;
-  background: #f5f5f5;
-  
-}
-
-.cart-item h4 {
-  margin: 0 0 5px 0;
-}
-
-.cart-item p {
-  margin: 0 0 8px 0;
-}
-
-.cart-item button {
-  padding: 4px 8px;
-  margin: 0 5px;
-}
-
-
-.cart-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.cart-actions button {
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.cart-actions .clear {
-  background: #eee;
-}
-
-.cart-actions .checkout {
-  background: #6b3e2e;
-  color: #fff;
-}
-
-
-.check-page {
-  max-width: 420px;
-  width: 100%;
-  margin: 80px auto;
-  padding: 30px 25px;
-
-  background: #ffffff;
-  border-radius: 18px;
-
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.08),
-    0 4px 10px rgba(0, 0, 0, 0.05);
-
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.check-page:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 15px 30px rgba(0, 0, 0, 0.12),
-    0 6px 12px rgba(0, 0, 0, 0.08);
-}
-
-.check-page h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  color: #4a2c1f;
-}
-
-.check-page p {
-  font-size: 15px;
-  margin: 6px 0;
-  color: #555;
-}
-
-.check-page hr {
-  margin: 20px 0;
-  border: none;
-  height: 1px;
-  background: #eee;
-}
-
-.check-page button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: #d9a441;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.check-page button:hover {
-  background: #c08c32;
-}
-
-@media (max-width: 480px) {
-  .check-page {
-    margin: 40px 15px;
-    padding: 25px 20px;
-  }
-}
-
-
-.product:hover {
-  transform: translateY(-5px);
-}
+.product:hover { transform: translateY(-5px); }
 
 .product img {
   width: 100%;
-  height: 140px;          /* ⭐ บังคับความสูงรูป */
-  object-fit: contain;    /* ⭐ รูปเล็กไม่ขยาย รูปใหญ่ไม่ล้น */
+  height: 140px;
+  object-fit: contain;
   border-radius: 12px;
   background: #fff;
 }
-
-
 .product h3 {
   font-size: 16px;
   color: #5A3E2B;
   margin: 12px 0 6px;
-  min-height: 40px; /* ⭐ กันชื่อยาว/สั้นไม่เท่ากัน */
+  min-height: 40px;
 }
-
 
 button.add {
   background: #c44a6f;
@@ -288,76 +95,108 @@ button.add {
   cursor: pointer;
   transition: 0.2s;
 }
+button.add:hover { background: #C28C5C; }
 
-button.add:hover {
-  background: #C28C5C;
-}
-
-/*วิดีโอ*/
-.product-video {
-  margin: 15px auto;
-  max-width: 320px;
-}
-
+/* =========================
+   Video
+========================= */
+.product-video { margin: 15px auto; max-width: 320px; }
 .product-video video {
   width: 100%;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.top-header {
+/* =========================
+   Cart Page
+========================= */
+.cart-page, .check-page, .contact-page {
+  max-width: 600px;
+  width: 100%;
+  margin: 80px auto;
+  padding: 30px 25px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
   text-align: center;
-  padding: 20px;
 }
 
+.cart-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  margin: 10px 0;
+}
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+.cart-item h4 { margin: 0 0 6px; }
+.cart-item p { margin: 0 0 8px; }
+.cart-item button { padding: 4px 10px; margin: 0 4px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer; }
 
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+.cart-actions button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.cart-actions .clear { background: #eee; }
+.cart-actions .checkout { background: #6b3e2e; color: #fff; }
+
+/* =========================
+   Checkout
+========================= */
+.check-page hr {
+  margin: 20px 0;
+  border: none;
+  height: 1px;
+  background: #eee;
+}
 .order-list p {
   display: flex;
   justify-content: space-between;
-  margin: 6px 0;
-}
-
-.summary {
-  text-align: center;
-}
-
-.payment-info {
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.upload-slip {
-  display: block;
-  margin: 15px 0;
-  font-size: 14px;
-}
-
-.upload-slip input {
-  display: block;
-  margin-top: 8px;
-}
-
-.contact-page {
-  max-width: 600px;
-  margin: 120px auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.contact-box p {
-  font-size: 16px;
   margin: 8px 0;
 }
-
-.contact-form {
-  margin-top: 20px;
+.check-page button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #d9a441;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
+.check-page button:hover { background: #c08c32; }
 
-.contact-form input,
-.contact-form textarea {
+.upload-slip { display: block; margin: 15px 0; font-size: 14px; text-align: left; }
+.upload-slip input { display: block; margin-top: 8px; }
+
+/* =========================
+   Contact
+========================= */
+.contact-box p { font-size: 16px; margin: 8px 0; }
+.contact-form { margin-top: 20px; }
+.contact-form input, .contact-form textarea {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -365,12 +204,7 @@ button.add:hover {
   border: 1px solid #ddd;
   font-size: 15px;
 }
-
-.contact-form textarea {
-  height: 120px;
-  resize: none;
-}
-
+.contact-form textarea { height: 120px; resize: none; }
 .contact-form button {
   background: #c59d5f;
   color: white;
@@ -380,103 +214,19 @@ button.add:hover {
   cursor: pointer;
   font-size: 16px;
 }
+.contact-form button:hover { background: #a87c3a; }
 
-.contact-form button:hover {
-  background: #a87c3a;
-}
-
-/*Contact Page ให้ดูสวยบนมือถือ*/
-@media (max-width: 480px) {
-
-  .contact-page h2 {
-    font-size: 20px;
-  }
-
-  .contact-box p {
-    font-size: 14px;
-  }
-
-}
-
-/*ปรับ Cart / Check / Contact ให้ไม่ติดขอบ*/
-@media (max-width: 480px) {
-
-  .cart-page,
-  .check-page,
-  .contact-page {
-    margin: 40px 15px;
-    padding: 25px 20px;
-  }
-
-}
-
-/*ปรับ Hero ให้เหมาะกับมือถือ*/
-@media (max-width: 768px) {
-
-  .hero {
-    padding: 50px 15px;
-  }
-
-  .hero img {
-    width: 150px;
-  }
-
-  .hero h1 {
-    font-size: 1.6em;
-  }
-
-}
-
-/*ปรับ Header + เมนู ให้ไม่ล้นจอมือถือ*/
-@media (max-width: 768px) {
-
-  header {
-    flex-direction: column;
-    padding: 15px 20px;
-    gap: 10px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav a {
-    margin: 8px 10px;
-    font-size: 15px;
-  }
-
-}
-
-.hero-text {
-  text-align: center;
-}
-
-.hero-icon {
-  width: 60px;        /* ปรับใหญ่เล็กได้ตามใจ */
-  margin-bottom: 8px; /* ระยะห่างจากข้อความ */
-}
-
-.hero-icon2 {
-  width: 140px;        /* ปรับใหญ่เล็กได้ตามใจ */
-  margin-bottom: 8px; /* ระยะห่างจากข้อความ */
-}
-
-.hero-text p {
-  font-size: 16px;
-  color: #5A3E2B;
-}
-
-.auth-page{
+/* =========================
+   Auth pages
+========================= */
+.auth-page {
   min-height: calc(100vh - 80px);
   display:flex;
   justify-content:center;
   align-items:center;
   padding: 30px 15px;
 }
-
-.auth-card{
+.auth-card {
   width: 100%;
   max-width: 420px;
   background:#fff;
@@ -485,31 +235,11 @@ button.add:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: center;
 }
-
-.auth-card h1{
-  margin: 0 0 6px;
-  color:#5A3E2B;
-}
-
-.auth-sub{
-  margin: 0 0 18px;
-  color:#6b5b4f;
-  font-size: 14px;
-}
-
-.auth-form{
-  text-align:left;
-}
-
-.auth-form label{
-  display:block;
-  margin: 10px 0 6px;
-  color:#5A3E2B;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.auth-form input{
+.auth-card h1 { margin: 0 0 6px; color:#5A3E2B; }
+.auth-sub { margin: 0 0 18px; color:#6b5b4f; font-size: 14px; }
+.auth-form { text-align:left; }
+.auth-form label { display:block; margin: 10px 0 6px; color:#5A3E2B; font-weight: 600; font-size: 14px; }
+.auth-form input {
   width:100%;
   padding: 12px;
   border: 1px solid #ddd;
@@ -517,15 +247,20 @@ button.add:hover {
   outline: none;
   font-size: 15px;
 }
-
 .auth-form input:focus{
   border-color:#C28C5C;
   box-shadow: 0 0 0 3px rgba(194,140,92,0.18);
 }
 
-.auth-btn{
-  width: 100%;
+.auth-actions {
   margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-main {
+  width: 100%;
   padding: 12px;
   border: none;
   border-radius: 14px;
@@ -533,34 +268,45 @@ button.add:hover {
   color:#fff;
   cursor:pointer;
   font-size: 16px;
+  transition: 0.2s;
 }
-
-.auth-btn:hover{
+.btn-main:hover {
   background:#C28C5C;
+  transform: translateY(-1px);
 }
 
-.auth-ghost{
-  background:#eee;
-  color:#5A3E2B;
+.btn-soft {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #d9c4a7;
+  background: #f8f3ec;
+  color: #5A3E2B;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
 }
+.btn-soft:hover { background: #efe4d5; }
 
-.auth-ghost:hover{
-  background:#e2d7c6;
+.btn-danger {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: #b42318;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
 }
+.btn-danger:hover { background: #8e1c13; }
 
-.auth-switch{
-  margin-top: 14px;
-  font-size: 14px;
-  color:#6b5b4f;
-}
+.auth-switch { margin-top: 14px; font-size: 14px; color:#6b5b4f; }
+.auth-switch a { color:#8A5A3A; font-weight: 700; text-decoration: none; }
 
-.auth-switch a{
-  color:#8A5A3A;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* HEADER ใหม่ */
+/* =========================
+   NEW site-header (cart + user)
+========================= */
 .site-header{
   background:#F4E8D3;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
@@ -570,7 +316,7 @@ button.add:hover {
   padding: 14px 40px;
   position: sticky;
   top:0;
-  z-index:10;
+  z-index:9999;
   gap: 16px;
 }
 
@@ -583,21 +329,23 @@ button.add:hover {
   font-size: 20px;
   white-space: nowrap;
 }
+.brand span { letter-spacing: 0.2px; }
 
 .main-nav{
   display:flex;
   align-items:center;
   gap:18px;
 }
-
 .main-nav a{
   text-decoration:none;
   color:#333;
   font-weight:500;
+  padding: 8px 10px;
+  border-radius: 12px;
 }
-
 .main-nav a:hover{
   color:#C28C5C;
+  background: rgba(255,255,255,0.6);
 }
 
 .header-actions{
@@ -605,9 +353,10 @@ button.add:hover {
   align-items:center;
   gap:12px;
   white-space: nowrap;
+  position: relative;
+  z-index: 10000;
 }
 
-/* ตะกร้า */
 .cart-link{
   text-decoration:none;
   font-size:20px;
@@ -616,7 +365,6 @@ button.add:hover {
   align-items:center;
   gap:6px;
 }
-
 .cart-link span{
   background:#C28C5C;
   color:#fff;
@@ -626,7 +374,7 @@ button.add:hover {
 }
 
 /* user menu */
-.user-menu{ position:relative; }
+.user-menu{ position:relative; z-index:10001; }
 
 .user-btn{
   width:40px;height:40px;
@@ -651,7 +399,7 @@ button.add:hover {
   box-shadow:0 12px 28px rgba(0,0,0,0.12);
   padding:10px;
   display:none;
-  z-index:999;
+  z-index:10002;
 }
 .user-dropdown.open{ display:block; }
 
@@ -659,7 +407,6 @@ button.add:hover {
   padding:10px 10px 8px;
   border-bottom:1px solid #eee;
 }
-
 .user-name{
   font-weight:800;
   color:#5A3E2B;
@@ -682,7 +429,9 @@ button.add:hover {
 .dropdown-item:hover{ background:#f6efe6; }
 .dropdown-item.danger{ color:#b42318; font-weight:700; }
 
-/* มือถือ: ให้ header ไม่แตก */
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 768px){
   .site-header{
     padding: 12px 16px;
@@ -695,68 +444,12 @@ button.add:hover {
     padding-top: 6px;
     flex-wrap: wrap;
   }
+  .hero { padding: 50px 15px; }
+  .hero img { width: 150px; }
+  .hero h1 { font-size: 1.6em; }
 }
 
-.brand span { 
-  letter-spacing: 0.2px; 
-}
-
-.main-nav a { 
-  padding: 8px 10px; border-radius: 12px; 
-}
-
-.main-nav a:hover {
-   background: rgba(255,255,255,0.6); 
-}
-
-.btn-main {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #8A5A3A, #C28C5C);
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-.btn-main:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
-  opacity: 0.95;
-}
-
-.btn-soft {
-  width: 100%;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid #d9c4a7;
-  background: #f8f3ec;
-  color: #5A3E2B;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.btn-soft:hover {
-  background: #efe4d5;
-}
-
-.btn-danger {
-  width: 100%;
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  background: #b42318;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.btn-danger:hover {
-  background: #8e1c13;
+@media (max-width: 480px){
+  .cart-page, .check-page, .contact-page { margin: 40px 15px; padding: 25px 20px; }
+  .contact-box p { font-size: 14px; }
 }

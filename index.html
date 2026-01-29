@@ -1,159 +1,79 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🍞 Hom Noei Bakery</title>
-
-  <!-- เชื่อม style.css -->
   <link rel="stylesheet" href="style.css">
-
-  
 </head>
 
 <body>
 
-  <!-- แถบหัวเว็บ -->
-  <header class="site-header">
-  <!-- ซ้าย: โลโก้/ชื่อร้าน -->
-  <div class="brand">
-    🍞 <span>Hom Noei Bakery</span>
-  </div>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
 
-  <!-- กลาง: เมนู -->
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ขวา: ไอคอน -->
   <div class="header-actions">
-    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
-      🛒 <span id="cart-count">0</span>
-    </a>
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
 
     <div class="user-menu" id="userMenu">
       <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
-
       <div class="user-dropdown" id="userDropdown">
         <div class="user-row">
           <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
         </div>
-
         <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
         <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
         <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
       </div>
     </div>
   </div>
+</header>
 
+<div class="hero">
+  <img src="images/hom.jfif" class="hero-icon" alt="logo">
+  <h1>Signature Butter Sugar Toast</h1>
 
-    <script>
-      function addToCart() {
-        let count = parseInt(localStorage.getItem("cartCount")) || 0;
-        count += 1;
-        localStorage.setItem("cartCount", count);
+  <img src="images/1.png" alt="toast">
 
-        updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
-      }
-
-      function addToCart() {
-        let count = parseInt(localStorage.getItem("cartCount")) || 0;
-        count++;
-        localStorage.setItem("cartCount", count);
-        updateCartCount();
-      }
-    </script>
-
-  </header>
-
-  <!-- ส่วนแนะนำ -->
-  <div class="hero">
-    <img src="images/hom.jfif" class="hero-icon">
-    <h1>Signature Butter Sugar Toast</h1>
-
-      <img src="images/1.png" alt="cake">
   <div class="product-video">
-      <video autoplay loop playsinline controls>
-        <source src="videos/1.mp4" type="video/mp4">
-        เบราว์เซอร์ไม่รองรับวิดีโอ
-      </video>
-    </div>    
-    <p>🧈 ขนมปังทาเนยน้ำตาลสูตรพิเศษ หวานละมุน หอมเนยเต็มคำ 🧈</p>
-    <a href="menu.html">
-  <button>Order Now</button>
-</a>
-
+    <video autoplay loop playsinline controls>
+      <source src="videos/1.mp4" type="video/mp4">
+      เบราว์เซอร์ไม่รองรับวิดีโอ
+    </video>
   </div>
 
-  <!-- สินค้า -->
-  <div class="product-section">
-    <div class="product">
-      <img src="images/1.1.png" alt="cake">
+  <p>🧈 ขนมปังทาเนยน้ำตาลสูตรพิเศษ หวานละมุน หอมเนยเต็มคำ 🧈</p>
+  <a href="menu.html"><button>Order Now</button></a>
+</div>
 
-      <h3>
-        <div>
-          <a href="product1.html" style="text-decoration: none; color: #5A3E2B;">Soft Butter Hug
-          </a>
-        </div>
-      </h3>
-    </div>
-
-    <div class="product">
-      <img src="images/1.2.png" alt="cake">
-
-      <h3>
-        <div>
-          <a href="product2.html" style="text-decoration: none; color: #5A3E2B;">Sweet Melt Box
-          </a>
-        </div>
-      </h3>
-    </div>
-
-    <div class="product">
-      <img src="images/1.3.png" alt="cake">
-
-      <h3>
-        <div>
-          <a href="product3.html" style="text-decoration: none; color: #5A3E2B;">Golden Toast Crate
-          </a>
-        </div>
-      </h3>
-    </div>
-
-    <div class="product">
-      <img src="images/1.4.png" alt="cake">
-
-      <h3>
-        <div>
-          <a href="product4.html" style="text-decoration: none; color: #5A3E2B;">Bakery Family Box
-          </a>
-        </div>
-      </h3>
-    </div>
-
+<div class="product-section">
+  <div class="product">
+    <img src="images/1.1.png" alt="Soft Butter Hug">
+    <h3><a href="product1.html" style="text-decoration:none;color:#5A3E2B;">Soft Butter Hug</a></h3>
   </div>
 
-<script>
-    function updateCartCount() {
-      let count = localStorage.getItem("cartCount") || 0;
-      document.getElementById("cart-count").innerText = count;
-    }
+  <div class="product">
+    <img src="images/1.2.png" alt="Sweet Melt Box">
+    <h3><a href="product2.html" style="text-decoration:none;color:#5A3E2B;">Sweet Melt Box</a></h3>
+  </div>
 
-    function addToCart() {
-      let count = parseInt(localStorage.getItem("cartCount")) || 0;
-      count++;
-      localStorage.setItem("cartCount", count);
-      updateCartCount();
-    }
+  <div class="product">
+    <img src="images/1.3.png" alt="Golden Toast Crate">
+    <h3><a href="product3.html" style="text-decoration:none;color:#5A3E2B;">Golden Toast Crate</a></h3>
+  </div>
 
-    updateCartCount();
-  </script>
+  <div class="product">
+    <img src="images/1.4.png" alt="Bakery Family Box">
+    <h3><a href="product4.html" style="text-decoration:none;color:#5A3E2B;">Bakery Family Box</a></h3>
+  </div>
+</div>
 
-  <!-- เชื่อม script.js -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>

@@ -3,95 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍞 Hom Noei Bakery</title>
-
-  <!-- เชื่อม style.css -->
+  <title>Soft Butter Hug | Hom Noei Bakery</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
-  <!-- แถบหัวเว็บ -->
-  <header class="site-header">
-  <!-- ซ้าย: โลโก้/ชื่อร้าน -->
-  <div class="brand">
-    🍞 <span>Hom Noei Bakery</span>
-  </div>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
 
-  <!-- กลาง: เมนู -->
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ขวา: ไอคอน -->
   <div class="header-actions">
-    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
-      🛒 <span id="cart-count">0</span>
-    </a>
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
 
     <div class="user-menu" id="userMenu">
       <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
-
       <div class="user-dropdown" id="userDropdown">
         <div class="user-row">
           <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
         </div>
-
         <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
         <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
         <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
       </div>
     </div>
   </div>
-  
- <script>
-      function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count += 1;
-    localStorage.setItem("cartCount", count);
+</header>
 
-    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
-}
+<div class="hero">
+  <img src="images/1.1.png" alt="Soft Butter Hug">
+  <h1>Soft Butter Hug</h1>
+  <p>นุ่มหอมเนย กอดใจด้วยความละมุน</p>
+  <p><strong>ราคา 10 บาท</strong></p>
+  <button class="add" onclick="addToCart('Soft Butter Hug', 10, 'images/1.1.png')">ใส่ตะกร้า</button>
+</div>
 
-    </script>
-
-  </header>
-
-<!-- ส่วนแนะนำ -->
-  <div class="hero">
-    <img src="images/1.1.png" alt="cake">
-    <h1>Soft Butter Hug</h1>
-    <p>🥯 ขนมปังเนยนุ่มละมุน หอมกลิ่นเนยเต็มคำ</p>
-    <p>แผ่นขนมปังอบจนกรอบพอดี แต่กัดแล้วนุ่มหอม ละลายในปาก ได้รสเนยแท้แบบเต็มๆ เหมาะสำหรับคนที่ชอบความเรียบง่ายแต่พรีเมียม สายเนยต้องโดน!</p>
-    <button onclick=
-        "addToCart('Soft Butter Hug',
-          10,
-        'images/1.1.png')">Order Now</button>
-  </div>
-
-
-<div class="cart"><a href="cart.html" style="position: fixed; top: 10px; right: 10px; font-size: 20px; text-decoration: none;">
-    🛒 <span id="cart-count">0</span>
-      </a>
-    </div>
-
-<script>
-function updateCartCount() {
-    let count = localStorage.getItem("cartCount") || 0;
-    document.getElementById("cart-count").innerText = count;
-}
-
-function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count++;
-    localStorage.setItem("cartCount", count);
-    updateCartCount();
-}
-
-updateCartCount();
-</script>
 <script src="script.js"></script>
 </body>
 </html>

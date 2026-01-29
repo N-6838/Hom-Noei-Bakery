@@ -3,166 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍞 Hom Noei Bakery</title>
-
-  <!-- เชื่อม style.css -->
+  <title>🍞 Hom Noei Bakery | Menu</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-  <!-- แถบหัวเว็บ -->
-  <header class="site-header">
-  <!-- ซ้าย: โลโก้/ชื่อร้าน -->
-  <div class="brand">
-    🍞 <span>Hom Noei Bakery</span>
-  </div>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
 
-  <!-- กลาง: เมนู -->
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ขวา: ไอคอน -->
   <div class="header-actions">
-    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
-      🛒 <span id="cart-count">0</span>
-    </a>
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
 
     <div class="user-menu" id="userMenu">
       <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
-
       <div class="user-dropdown" id="userDropdown">
         <div class="user-row">
           <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
         </div>
-
         <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
         <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
         <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
       </div>
     </div>
   </div>
+</header>
 
-    <script>
-      function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count += 1;
-    localStorage.setItem("cartCount", count);
-
-    updateCartCount();  // อัปเดตบนหน้าเดิมด้วย
-}
-
-function addToCart() {
-    let count = parseInt(localStorage.getItem("cartCount")) || 0;
-    count++;
-    localStorage.setItem("cartCount", count);
-    updateCartCount();
-}
-    </script>
-
-  </header>
-
-  
-
-  <!-- สินค้า -->
-  <div class="product-section">
-    <div class="product">
-      <img src="images/1.1.png" alt="cake">
-
-      <h3>
-        <div> 
-          <a href="product1.html" 
-            style="text-decoration: none; color: #5A3E2B;">Soft Butter Hug
-          </a> 
-        </div>
-      </h3>
-
-      <p>ราคา 10 บาท</p>
-      <button class="add" onclick="addToCart(
-        'Soft Butter Hug',
-          10,
-        'images/1.1.png'
-        )">ใส่ตะกร้า</button>
-    </div> 
-
-    <div class="product">
-      <img src="images/1.2.png" alt="cake">
-
-      <h3>
-        <div> 
-          <a href="product2.html" 
-            style="text-decoration: none; color: #5A3E2B;">Sweet Melt Box
-          </a>
-        </div>
-      </h3>
-
-      <p>ราคา 20 บาท</p>
-      <button class="add" onclick="addToCart(
-        'Sweet Melt Box',
-          20,
-        'images/1.2.png'
-        )">ใส่ตะกร้า</button>
-    </div>
-
-    <div class="product">
-      <img src="images/1.3.png" alt="cake">
-
-      <h3>
-        <div> 
-          <a href="product3.html" 
-            style="text-decoration: none; color: #5A3E2B;">Golden Toast Crate
-          </a> 
-        </div>
-      </h3>
-
-      <p>ราคา 40 บาท</p>
-      <button class="add" onclick="addToCart(
-        'Golden Toast Crate',
-          40,
-        'images/1.3.png'
-        )">ใส่ตะกร้า</button>
-    </div>
-
+<div class="product-section">
   <div class="product">
-      <img src="images/1.4.png" alt="cake">
-
-      <h3>
-        <div> 
-          <a href="product4.html" 
-            style="text-decoration: none; color: #5A3E2B;">Bakery Family Box
-          </a> 
-        </div>
-      </h3>
-
-      <p>ราคา 60 บาท</p>
-      <button class="add" onclick="addToCart(
-        'Bakery Family Box',
-          60,
-        'images/1.4.png'
-        )">ใส่ตะกร้า</button>
-    </div>
+    <img src="images/1.1.png" alt="Soft Butter Hug">
+    <h3><a href="product1.html" style="text-decoration:none;color:#5A3E2B;">Soft Butter Hug</a></h3>
+    <p>ราคา 10 บาท</p>
+    <button class="add" onclick="addToCart('Soft Butter Hug', 10, 'images/1.1.png')">ใส่ตะกร้า</button>
   </div>
 
-<script>
-    function updateCartCount() {
-      let count = localStorage.getItem("cartCount") || 0;
-      document.getElementById("cart-count").innerText = count;
-    }
+  <div class="product">
+    <img src="images/1.2.png" alt="Sweet Melt Box">
+    <h3><a href="product2.html" style="text-decoration:none;color:#5A3E2B;">Sweet Melt Box</a></h3>
+    <p>ราคา 20 บาท</p>
+    <button class="add" onclick="addToCart('Sweet Melt Box', 20, 'images/1.2.png')">ใส่ตะกร้า</button>
+  </div>
 
-    function addToCart() {
-      let count = parseInt(localStorage.getItem("cartCount")) || 0;
-      count++;
-      localStorage.setItem("cartCount", count);
-      updateCartCount();
-    }
+  <div class="product">
+    <img src="images/1.3.png" alt="Golden Toast Crate">
+    <h3><a href="product3.html" style="text-decoration:none;color:#5A3E2B;">Golden Toast Crate</a></h3>
+    <p>ราคา 40 บาท</p>
+    <button class="add" onclick="addToCart('Golden Toast Crate', 40, 'images/1.3.png')">ใส่ตะกร้า</button>
+  </div>
 
-    updateCartCount();
-  </script>
+  <div class="product">
+    <img src="images/1.4.png" alt="Bakery Family Box">
+    <h3><a href="product4.html" style="text-decoration:none;color:#5A3E2B;">Bakery Family Box</a></h3>
+    <p>ราคา 60 บาท</p>
+    <button class="add" onclick="addToCart('Bakery Family Box', 60, 'images/1.4.png')">ใส่ตะกร้า</button>
+  </div>
+</div>
 
-  <!-- เชื่อม script.js -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

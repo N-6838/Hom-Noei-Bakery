@@ -8,14 +8,29 @@
 </head>
 <body>
 
-<header class="top-header">
-  <h2>🍞 Hom Noei Bakery</h2>
-  <nav>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
     <a href="login.html">Login</a>
   </nav>
+
+  <div class="header-actions">
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
+    <div class="user-menu" id="userMenu">
+      <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-row">
+          <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
+        </div>
+        <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
+        <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
+        <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div class="auth-page">
@@ -33,7 +48,12 @@
       <label>รหัสผ่าน</label>
       <input id="reg-password" type="password" placeholder="อย่างน้อย 4 ตัว" required />
 
-      <button type="submit" class="auth-btn">สมัครสมาชิก</button>
+      <div class="auth-actions">
+        <button type="submit" class="btn-main">สมัครสมาชิก</button>
+        <a href="login.html" style="text-decoration:none;">
+          <button type="button" class="btn-soft">มีบัญชีแล้ว? ไปหน้าเข้าสู่ระบบ</button>
+        </a>
+      </div>
     </form>
 
     <p class="auth-switch">
@@ -42,6 +62,6 @@
   </div>
 </div>
 
-<script src="auth.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -48,6 +48,24 @@
     </div>
   </div>
 
+  <script>
+  const userBtn = document.getElementById("userBtn");
+  const userDropdown = document.getElementById("userDropdown");
+
+  if (userBtn && userDropdown) {
+    userBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      userDropdown.classList.toggle("open");
+    });
+
+    // คลิกที่อื่นแล้วปิดเมนู
+    document.addEventListener("click", () => {
+      userDropdown.classList.remove("open");
+    });
+  }
+</script>
+
+
     <script>
       function addToCart() {
         let count = parseInt(localStorage.getItem("cartCount")) || 0;

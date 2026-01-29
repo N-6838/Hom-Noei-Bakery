@@ -3,107 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <title>ตะกร้าสินค้า</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="top-header">
-  <h2>🛒 ตะกร้าสินค้า</h2>
+<header class="site-header">
+  <div class="brand">🍞 <span>Hom Noei Bakery</span></div>
 
-  <!-- กลาง: เมนู -->
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="menu.html">Our Menu</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ขวา: ไอคอน -->
   <div class="header-actions">
-    <a class="cart-link" href="cart.html" aria-label="ตะกร้า">
-      🛒 <span id="cart-count">0</span>
-    </a>
+    <a class="cart-link" href="cart.html">🛒 <span id="cart-count">0</span></a>
 
     <div class="user-menu" id="userMenu">
       <button class="user-btn" id="userBtn" aria-label="บัญชีผู้ใช้">👤</button>
-
       <div class="user-dropdown" id="userDropdown">
         <div class="user-row">
           <span class="user-name" id="menuUserName">ยังไม่เข้าสู่ระบบ</span>
         </div>
-
         <a href="cart.html" class="dropdown-item">🛒 ไปตะกร้า</a>
         <a href="login.html" class="dropdown-item" id="loginItem">🔐 เข้าสู่ระบบ</a>
         <button class="dropdown-item danger" id="logoutItem" type="button">🚪 ออกจากระบบ</button>
       </div>
     </div>
   </div>
-
 </header>
 
-<!-- กล่องหลัก -->
 <div class="cart-page">
   <h2>📦 รายการสินค้าในตะกร้า</h2>
   <div id="cart-list"></div>
   <h3 id="total"></h3>
 
-  <button onclick="clearCart()">ล้างตะกร้า</button>
-  <button onclick="goCheckout()">ชำระเงิน</button>
+  <div class="cart-actions">
+    <button class="clear" onclick="clearCart()">ล้างตะกร้า</button>
+    <button class="checkout" onclick="goCheckout()">ชำระเงิน</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
 <script>
-const cart = getCart();
-let html = "";
-let total = 0;
+  const cart = getCart();
+  let html = "";
+  let total = 0;
 
-cart.forEach((item, i) => {
-  const price = Number(item.price) || 0;
-  const qty = Number(item.qty) || 0;
-  const sum = price * qty;
-  total += sum;
+  cart.forEach((item, i) => {
+    const price = Number(item.price) || 0;
+    const qty = Number(item.qty) || 0;
+    total += price * qty;
 
-  html += `
-    <div class="cart-item">
-      <img src="${item.image || 'images/no-image.png'}">
-      <div>
-        <h4>${item.name}</h4>
-        <p>${price} บาท</p>
-        <button onclick="changeQty(${i}, -1)">−</button>
-        <span>${qty}</span>
-        <button onclick="changeQty(${i}, 1)">+</button>
+    html += `
+      <div class="cart-item">
+        <img src="${item.image || 'images/no-image.png'}" alt="">
+        <div style="text-align:left; flex:1;">
+          <h4>${item.name}</h4>
+          <p>${price} บาท</p>
+          <div>
+            <button onclick="changeQty(${i}, -1)">−</button>
+            <span>${qty}</span>
+            <button onclick="changeQty(${i}, 1)">+</button>
+          </div>
+        </div>
       </div>
-    </div>
-  `;
-});
+    `;
+  });
 
-document.getElementById("cart-list").innerHTML =
-  html || "<p>ยังไม่มีสินค้าในตะกร้า</p>";
+  document.getElementById("cart-list").innerHTML = html || "<p>ยังไม่มีสินค้าในตะกร้า</p>";
+  document.getElementById("total").innerText = "รวม " + total + " บาท";
 
-document.getElementById("total").innerText =
-  "รวม " + total + " บาท";
-
-document.getElementById("cart-count").innerText =
-  localStorage.getItem("cartCount") || 0;
-
-function changeQty(i, n) {
-  let cart = getCart();
-  cart[i].qty += n;
-  if (cart[i].qty <= 0) cart.splice(i, 1);
-  saveCart(cart);
-  location.reload();
-}
-
-function goCheckout() {
-  if (cart.length === 0) {
-    alert("ยังไม่มีสินค้าในตะกร้า");
-  } else {
-    location.href = "checkout.html";
+  function changeQty(i, n) {
+    const cart = getCart();
+    cart[i].qty += n;
+    if (cart[i].qty <= 0) cart.splice(i, 1);
+    saveCart(cart);
+    location.reload();
   }
-}
-</script>
 
+  function goCheckout() {
+    if (getCart().length === 0) {
+      alert("ยังไม่มีสินค้าในตะกร้า");
+    } else {
+      location.href = "checkout.html";
+    }
+  }
+</script>
 
 </body>
 </html>

@@ -30,18 +30,18 @@
       <label>รหัสผ่าน</label>
       <input id="login-password" type="password" placeholder="password" required />
 
-      <!-- ล็อกอินลูกค้า -->
-      <button type="submit" class="auth-btn">เข้าสู่ระบบ</button>
+      <div class="auth-actions">
+      <button type="submit" class="btn-main">เข้าสู่ระบบ</button>
 
-      <!-- ล็อกอินพนักงาน -->
-    <button type="button" class="auth-btn auth-ghost" onclick="loginStaff()">
+      <button type="button" class="btn-soft" onclick="loginStaff()">
         เข้าสู่ระบบพนักงาน
-    </button>
+      </button>
 
-      <button class="auth-btn auth-ghost" onclick="logoutDemo()">ออกจากระบบ (เดโม)</button>
+      <button type="button" class="btn-danger" onclick="logoutDemo()">
+        ออกจากระบบ
+      </button>
+    </div>
     </form>
-
-    
 
     <p class="auth-switch">
       ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a>
@@ -49,31 +49,11 @@
   </div>
 </div>
 
-
-
-<script src="auth.js"></script>
-
+<script src="script.js"></script>
 <script>
-  // เข้าสู่ระบบพนักงาน (เด้งไปหลังบ้าน)
-  function loginStaff() {
-    // ตอนนี้ให้เป็นเดโมไปก่อน: ตั้ง role เป็น staff แล้วเด้งไปหน้า admin
-    localStorage.setItem("role", "staff");
-    window.location.href = "admin.html"; // เดี๋ยวเราทำหลังบ้านจริงกันต่อ
+  function loginStaff(){
+    window.location.href = "staff-login.html";
   }
-
-  // กัน error ถ้า auth.js ยังไม่มี logoutDemo
-  function logoutDemo() {
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("role");
-    alert("ออกจากระบบแล้ว (เดโม)");
-    window.location.reload();
-  }
-</script>
-
-<script>
-function loginStaff(){
-  window.location.href = "staff-login.html";
-}
 </script>
 
 </body>
